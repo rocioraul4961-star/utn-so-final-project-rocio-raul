@@ -4,7 +4,7 @@ const db = require("./db");
 // Define express app
 const app = express();
 app.use(express.json());
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 4000;
 
 // Middleware to parse JSON requests
 app.use(express.json());
@@ -12,7 +12,7 @@ app.use(express.json());
 // Routes
 app.get("/api/ping", (req, res) => res.json({ message: "pong" }));
 app.get("/api/greet", (req, res) => {
-  const nombre = req.query.name || 'invitado';
+  const nombre = req.query.nombre || 'invitado';
   res.json({ message: `Hola, ${nombre}!` });
 });
 app.get("/api/students", async (req, res) => {
