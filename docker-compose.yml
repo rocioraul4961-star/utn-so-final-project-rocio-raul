@@ -3,8 +3,8 @@ services:
     build: ./backend
     expose:
       - "4000"
-      ports:
-      -"4000":"4000"
+    ports:
+      - "4000:4000"
     environment:
       - PORT=4000
       - PGUSER=${PGUSER:-student}
