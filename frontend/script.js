@@ -37,8 +37,11 @@ document.getElementById("addStudentButton").addEventListener("click", async () =
   }
 });
 document.getElementById('saludarButton').addEventListener('click', () => {
-  const nombre = document.getElementById('nombreInput').value;
-  fetch(`/api/greet?name=${nombre}`)
+  const nombre = document.getElementById('nombreInput').value.trim();
+  if (!nombre) {
+    return alert("Por favor ingresa un nombre");
+  }
+  fetch(`/api/greet?name=${encodeURIComponent(nombre)}`)
     .then(response => response.json())
     .then(data => {
       document.getElementById('saludoTexto').textContent = data.message;

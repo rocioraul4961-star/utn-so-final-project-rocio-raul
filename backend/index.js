@@ -12,7 +12,7 @@ app.use(express.json());
 // Routes
 app.get("/api/ping", (req, res) => res.json({ message: "pong" }));
 app.get("/api/greet", (req, res) => {
-  const nombre = req.query.nombre || 'invitado';
+  const nombre = req.query.name || 'invitado';
   res.json({ message: `Hola, ${nombre}!` });
 });
 app.get("/api/students", async (req, res) => {
